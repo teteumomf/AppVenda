@@ -1,0 +1,35 @@
+unit DMUtil;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+
+type
+  TDMAuxiliar = class(TDataModule)
+    mem_Produtos: TFDMemTable;
+    mem_ProdutosCODIGO: TIntegerField;
+    mem_ProdutosQUANTIDADE: TFloatField;
+    mem_ProdutosVALOR: TFloatField;
+    mem_ProdutosTOTAL: TFloatField;
+    mem_Produtosproduto: TStringField;
+    ds_ListaPedidos: TDataSource;
+    mem_Produtosiditens: TAutoIncField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DMAuxiliar: TDMAuxiliar;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

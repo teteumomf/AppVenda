@@ -1,0 +1,94 @@
+unit ModelPedido;
+
+interface
+
+uses Pedido, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client, DMConexao, System.SysUtils, System.Classes;
+
+type
+  TModelPedido = class(TInterfacedObject, IModelPedido)
+  private
+    FQuery: TFDQuery;
+
+    FCodPedido: Integer;
+    FCodCliente: Integer;
+    FDataPedido: TDateTime;
+    FValorPedido: Double;
+  public
+    constructor Create;
+    destructor Destroy; override;
+    class function New: IModelPedido;
+
+    function CodPedido(value: Integer): IModelPedido;
+    function CodCliente(value: Integer): IModelPedido;
+    function DataPedido(value: TDateTime): IModelPedido;
+    function ValorPedido(value: Double): IModelPedido;
+    function GravaPedido: IModelPedido;
+    function DeletaPedido: IModelPedido;
+    function BuscaPedido: IModelPedido;
+  end;
+
+implementation
+
+{ TModelPedido }
+
+function TModelPedido.BuscaPedido: IModelPedido;
+begin
+
+end;
+
+function TModelPedido.CodCliente(value: Integer): IModelPedido;
+begin
+  Result := self;
+  FCodCliente := value;
+end;
+
+function TModelPedido.CodPedido(value: Integer): IModelPedido;
+begin
+  Result := self;
+  FCodPedido := value;
+end;
+
+constructor TModelPedido.Create;
+begin
+  FQuery := TFDQuery.Create(nil);
+  FQuery.Connection := DM.FDConexao;
+  FQuery.Active := false;
+  FQuery.SQL.Clear;
+end;
+
+function TModelPedido.DataPedido(value: TDateTime): IModelPedido;
+begin
+  Result := self;
+  FDataPedido := value;
+end;
+
+function TModelPedido.DeletaPedido: IModelPedido;
+begin
+
+end;
+
+destructor TModelPedido.Destroy;
+begin
+  FreeAndNil(FQuery);
+  inherited;
+end;
+
+function TModelPedido.GravaPedido: IModelPedido;
+begin
+
+end;
+
+class function TModelPedido.New: IModelPedido;
+begin
+  Result := self.Create;
+end;
+
+function TModelPedido.ValorPedido(value: Double): IModelPedido;
+begin
+
+end;
+
+end.

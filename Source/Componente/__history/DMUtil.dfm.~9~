@@ -1,0 +1,9 @@
+object DMAuxiliar: TDMAuxiliar
+  OldCreateOrder = False
+  Height = 286
+  Width = 426
+  object ds_ListaPedidos: TDataSource
+    Left = 200
+    Top = 112
+  end
+end

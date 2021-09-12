@@ -1,0 +1,17 @@
+unit Produto;
+
+interface
+
+uses
+  System.Classes;
+
+type
+  IModelProduto = Interface
+    ['{2EEF0751-FC27-4553-9B12-7036438A1846}']
+    function CodProduto(value: integer): IModelProduto;
+    function RetornaProduto(FList: TStringList): IModelProduto;
+  End;
+
+implementation
+
+end.

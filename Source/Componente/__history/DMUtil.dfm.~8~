@@ -1,0 +1,46 @@
+object DMAuxiliar: TDMAuxiliar
+  OldCreateOrder = False
+  Height = 286
+  Width = 426
+  object mem_Produtos: TFDMemTable
+    FieldDefs = <>
+    IndexDefs = <>
+    IndexFieldNames = 'iditens'
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    StoreDefs = True
+    Left = 88
+    Top = 24
+    object mem_Produtosiditens: TAutoIncField
+      FieldKind = fkCalculated
+      FieldName = 'iditens'
+      Calculated = True
+    end
+    object mem_ProdutosCODIGO: TIntegerField
+      DisplayLabel = 'COD. PROD'
+      FieldName = 'cod_produto'
+    end
+    object mem_Produtosproduto: TStringField
+      FieldName = 'produto'
+    end
+    object mem_ProdutosQUANTIDADE: TFloatField
+      FieldName = 'qtd_produtos'
+    end
+    object mem_ProdutosVALOR: TFloatField
+      FieldName = 'val_unitario'
+    end
+    object mem_ProdutosTOTAL: TFloatField
+      FieldName = 'val_total'
+    end
+  end
+  object ds_ListaPedidos: TDataSource
+    DataSet = mem_Produtos
+    Left = 200
+    Top = 112
+  end
+end

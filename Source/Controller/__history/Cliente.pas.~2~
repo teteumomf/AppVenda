@@ -1,0 +1,13 @@
+unit Cliente;
+
+interface
+
+type
+  IModelCliente = Interface
+    ['{E1424B5A-1B2C-417C-B767-0A25AB0C9201}']
+
+  End;
+
+implementation
+
+end.
